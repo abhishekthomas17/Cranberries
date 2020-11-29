@@ -15,7 +15,6 @@ def home(request):
     key=settings.BING_MAPS_KEY
     return render(request,"location_module/home.html",{"key":key})
 
-
 def get_population_density(request):
     latitude = round(float(request.GET.get('latitude')),6)
     longitude = round(float(request.GET.get('longitude')),6)
