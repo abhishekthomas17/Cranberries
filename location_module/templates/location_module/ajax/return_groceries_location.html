@@ -1,0 +1,70 @@
+{% load static %}
+{% load location_tags %}
+<div class="container text-center">
+
+  {% if total > 0 %}
+
+  <h3>Number of SuperMarkets within a {% widthratio radius 1000 1 %} KM Radius - {{count_supermarkets}}</h3>
+  <br>
+  <h3>Number of Grocery Stores within a {% widthratio radius 1000 1 %} KM Radius - {{count_groceries}}</h3>
+
+    <br><br>
+  <h3>Closest Competitors</h3>
+  <hr style="border:1px solid light;border-radius:20px">
+
+  <br>
+
+
+{% if supermarkets|length > 0 %}
+  <h4>SuperMarkets</h4>
+   <hr>
+<div class="row justify-content-center">
+  {% for i in supermarkets %}
+  <div class="col-lg-4 col-md-6 col-sm-12 mt-3 mb-4 bcontent">
+      <div class="card h-100" style="">
+          <div class="card-body d-flex flex-column">
+              <h4 class="card-title text-info pb-3">{{i.1.name}}</h4>
+              <p class="card-text">Address - {{i.1.address}}</p>
+              <p class="card-text">{{i.1.distance}} Meters away</p>
+          </div>
+      </div>
+  </div>
+
+  {% endfor %}
+</div>
+{% endif %}
+
+<br><br>
+{% if groceries|length > 0 %}
+<h4>Grocery Stores</h4>
+ <hr>
+<div class="row justify-content-center">
+  {% for i in groceries %}
+  <div class="col-lg-4 col-md-6 col-sm-12 mt-3 mb-4 bcontent">
+      <div class="card h-100" style="">
+          <div class="card-body d-flex flex-column">
+              <h4 class="card-title text-info pb-3">{{i.1.name}}</h4>
+              <p class="card-text">Address - {{i.1.address}}</p>
+              <p class="card-text">{{i.1.distance}} Meters away</p>
+          </div>
+      </div>
+  </div>
+
+  {% endfor %}
+</div>
+{% endif %}
+
+
+{% else %}
+
+<div class="container">
+
+  <h5>No Competitors (Grocery Stores , SuperMarkets) Found within {% widthratio radius 1000 1 %} KM radius :)</h5>
+
+</div>
+
+{% endif %}
+
+  <hr style="border:1px solid black;border-radius:10px;margin-top:50px">
+
+</div>
