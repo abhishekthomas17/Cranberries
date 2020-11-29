@@ -1,4 +1,4 @@
-# perfect_location
+# Perfect Location
 
 An enterprise solution that can help our customers by giving them detailed information about the locations that they choose to set up the business.
 Mainly Built for Pharmacies and Grocery Stores
